@@ -36,6 +36,7 @@ Also, Debian images does not includes Python.
 - `bullseye`.
 - `buster`.
 - `stretch`.
+- `alpine`.
 
 
 ## retry
