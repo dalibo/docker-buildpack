@@ -23,6 +23,7 @@ This image does not include Python, GCC nor PostgreSQL server.
 
 ## Tags
 
+- `bullseye`.
 - `buster`.
 - `stretch`.
 
