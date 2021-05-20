@@ -31,6 +31,7 @@ Also, Debian images does not includes Python.
 ## Tags
 
 - `centos8`.
+- `centos7`.
 - `bullseye`.
 - `buster`.
 - `stretch`.
