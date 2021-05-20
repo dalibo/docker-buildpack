@@ -1,6 +1,6 @@
-all: stretch
+all: buster stretch
 
-stretch:
+buster stretch:
 	docker build \
 	  --build-arg http_proxy \
 	  --tag dalibo/buildpack:$@ \
