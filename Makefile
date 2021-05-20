@@ -1,6 +1,7 @@
-all: centos8 centos7 bullseye buster stretch
+all: centos8 centos7 centos6 bullseye buster stretch
 
-centos8 centos7 bullseye buster stretch:
+.PHONY: centos6
+centos8 centos7 centos6 bullseye buster stretch:
 	docker build \
 	  --build-arg http_proxy \
 	  --tag dalibo/buildpack:$@ \
