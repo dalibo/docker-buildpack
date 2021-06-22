@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:7
 
 ADD common/retry /usr/local/bin
 ADD https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh /usr/local/bin/
@@ -11,9 +11,8 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
-    sed -i s/^keepcache=.*/keepcache=1/ /etc/yum.conf; \
-    yum -qy install --nodocs epel-release ; \
-    yum -q -y --nodocs install \
+    yum -q -y install epel-release ; \
+    yum -q -y install \
         git \
         jq \
         make \
