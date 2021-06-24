@@ -10,15 +10,16 @@ RUN set -ex; \
     useradd --system testuser; \
     :
 
+ADD https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 /usr/local/bin/jq
 ADD centos6/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 ADD centos6/epel-eol.repo /etc/yum.repos.d/epel-eol.repo
 RUN set -ex; \
+    chmod +x /usr/local/bin/jq ; \
     sed -i s/^keepcache=.*/keepcache=1/ /etc/yum.conf; \
     yum -q -y install epel-release ; \
     rm -f /etc/yum.repos.d/epel.repo; \
     yum -q -y install \
         http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm \
-        jq \
         make \
         net-tools \
         openssh-clients \
