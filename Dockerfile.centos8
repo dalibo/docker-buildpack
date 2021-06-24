@@ -12,7 +12,6 @@ RUN set -ex; \
 
 RUN set -ex; \
     chmod +x /usr/local/bin/retry; \
-    sed -i s/^keepcache=.*/keepcache=1/ /etc/yum.conf; \
     yum -qy install --nodocs \
         dnf-plugins-core \
         epel-release \
