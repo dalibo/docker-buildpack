@@ -13,7 +13,6 @@ RUN set -ex; \
 RUN set -ex; \
     yum -q -y install epel-release ; \
     yum -q -y install \
-        git \
         jq \
         make \
         net-tools \
@@ -27,6 +26,8 @@ RUN set -ex; \
         wget \
         xz-libs \
         yum-utils \
+        http://opensource.wandisco.com/centos/7/git/x86_64/perl-Git-2.22.0-1.WANdisco.437.noarch.rpm \
+        http://opensource.wandisco.com/centos/7/git/x86_64/git-2.22.0-1.WANdisco.437.x86_64.rpm \
     ; \
     yum clean all ; \
     :
