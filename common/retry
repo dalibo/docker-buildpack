@@ -2,7 +2,7 @@
 
 for s in {0..10} ; do
 	if "$@" ; then
-		return
+		break
 	else
 		sleep "$s"
 	fi
