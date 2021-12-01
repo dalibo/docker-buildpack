@@ -13,6 +13,7 @@ RUN set -ex; \
 RUN set -ex; \
     yum -q -y install epel-release ; \
     yum -q -y install \
+        bats \
         jq \
         make \
         net-tools \

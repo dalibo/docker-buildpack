@@ -17,6 +17,7 @@ RUN set -ex; \
         epel-release \
     ; \
     yum -q -y --nodocs install \
+        bats \
         git \
         jq \
         make \
