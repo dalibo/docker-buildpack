@@ -30,7 +30,7 @@ RUN set -ex; \
         rsync \
         sudo \
         wget \
-        xz-libs \
+        xz \
         yum-utils \
     ; \
     yum clean all ; \
