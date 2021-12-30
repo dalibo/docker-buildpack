@@ -18,6 +18,7 @@ RUN set -ex; \
     ; \
     yum -q -y --nodocs install \
         bats \
+        findutils \
         git \
         jq \
         make \
