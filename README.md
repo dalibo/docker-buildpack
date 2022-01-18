@@ -30,7 +30,6 @@ Also, Debian images does not includes Python.
 
 ## Tags
 
-
 - `alpine`.
 - `bookworm`.
 - `bullseye`.
@@ -38,8 +37,10 @@ Also, Debian images does not includes Python.
 - `centos6`.
 - `centos7`.
 - `centos8`.
+- `jessie`.
 - `rockylinux8`
 - `stretch`.
+
 
 ## retry
 
