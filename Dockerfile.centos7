@@ -11,6 +11,7 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
+    sed -i /http:..vault/s/http:/https:/ /etc/yum.repos.d/*; \
     yum -q -y install epel-release ; \
     yum -q -y install \
         bats \
