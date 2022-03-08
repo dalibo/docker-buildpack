@@ -36,7 +36,6 @@ Also, Debian images does not includes Python.
 - `buster`.
 - `centos6`.
 - `centos7`.
-- `centos8`.
 - `jessie`.
 - `rockylinux8`
 - `stretch`.
