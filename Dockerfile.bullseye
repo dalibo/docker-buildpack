@@ -18,6 +18,7 @@ RUN set -ex; \
         bzip2 \
         git \
         jq \
+        locales \
         make \
         netbase \
         openssh-client \
@@ -38,6 +39,12 @@ RUN set -ex; \
         /var/log/dpkg.log \
         /var/log/alternatives.log \
     ; \
+    :
+
+RUN set -ex; \
+    sed -i '/^# en_US.UTF-8/s/^# //' /etc/locale.gen; \
+    grep ^en_US /etc/locale.gen; \
+    locale-gen; \
     :
 
 ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]

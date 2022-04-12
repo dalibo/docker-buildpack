@@ -14,6 +14,7 @@ Buildpack image for development of PostgreSQL tooling:
 - sudo
 - tini
 - a system user named `testuser`.
+- `en_US.UTF-8` locale.
 
 This image does not include GCC nor PostgreSQL server.
 
