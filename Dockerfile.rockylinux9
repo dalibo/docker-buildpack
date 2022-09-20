@@ -1,0 +1,60 @@
+FROM rockylinux:9
+
+ADD common/retry /usr/local/bin
+ADD https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh /usr/local/bin/
+ADD https://github.com/krallin/tini/releases/download/v0.19.0/tini /usr/local/sbin/
+RUN set -ex; \
+    chmod +x /usr/local/bin/retry; \
+    chmod +x /usr/local/bin/wait-for-it.sh; \
+    chmod +x /usr/local/sbin/tini; \
+    useradd --system testuser; \
+    :
+
+RUN set -ex; \
+    chmod +x /usr/local/bin/retry; \
+    yum -q -y install --nodocs \
+        dnf-plugins-core \
+        epel-release \
+    ; \
+    yum -q -y --nodocs install \
+        https://download-ib01.fedoraproject.org/pub/epel/testing/9/Everything/x86_64/Packages/b/bats-1.8.0-1.el9.noarch.rpm \
+        findutils \
+        git \
+        glibc-langpack-en \
+        jq \
+        make \
+        net-tools \
+        openssh-clients \
+        openssl \
+        postgresql \
+        procps-ng \
+        psmisc \
+        rsync \
+        sudo \
+        wget \
+        xz \
+        yum-utils \
+    ; \
+    yum clean all ; \
+    rm -rf \
+        /usr/share/perl5/pod/*.pod \
+        /var/log/dnf*.log \
+    ; \
+    :
+
+RUN set -ex; \
+    curl -sSL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -C /usr/local/bin -vxJ --strip-components=1 shellcheck-stable/shellcheck ; \
+    chmod +x /usr/local/bin/shellcheck ; \
+    shellcheck --version ; \
+    :
+
+RUN set -ex; \
+    curl -LO https://github.com/tcnksm/ghr/releases/download/v0.15.0/ghr_v0.15.0_linux_amd64.tar.gz; \
+    tar --strip-component=1 -xvf ghr_v0.15.0_linux_amd64.tar.gz ghr_v0.15.0_linux_amd64/ghr; \
+    chmod +x ghr; \
+    mv ghr /usr/local/bin; \
+    rm -f ghr_*.tar.gz; \
+    ghr -version; \
+    :
+
+ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]

@@ -40,6 +40,7 @@ Also, Debian images does not includes Python.
 - `centos7`.
 - `jessie`.
 - `rockylinux8`
+- `rockylinux9`
 - `stretch`.
 
 
