@@ -53,6 +53,7 @@ RUN set -ex; \
     chmod +x ghr; \
     mv ghr /usr/local/bin; \
     rm -f ghr_*.tar.gz; \
+    ghr -version; \
     :
 
 ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]

@@ -1,4 +1,4 @@
-FROM rockylinux:8
+FROM rockylinux:9
 
 ADD common/retry /usr/local/bin
 ADD https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh /usr/local/bin/
@@ -54,6 +54,7 @@ RUN set -ex; \
     chmod +x ghr; \
     mv ghr /usr/local/bin; \
     rm -f ghr_*.tar.gz; \
+    ghr -version; \
     :
 
 ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]
