@@ -5,6 +5,7 @@ Buildpack image for development of PostgreSQL tooling:
 - bzip2, zip, xz
 - curl, wget, ca-certificates
 - git
+- ghr
 - jq
 - make
 - psql
