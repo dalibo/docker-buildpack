@@ -5,7 +5,7 @@ Buildpack image for development of PostgreSQL tooling:
 - bzip2, zip, xz
 - curl, wget, ca-certificates
 - git
-- ghr
+- ghr, gh
 - jq
 - make
 - psql
@@ -18,6 +18,9 @@ Buildpack image for development of PostgreSQL tooling:
 - `en_US.UTF-8` locale.
 
 This image does not include GCC nor PostgreSQL server.
+
+Each images does not includes all tools, to save disk space and bandwidth. If
+you need a tool in a specific image, just ask.
 
 
 ## Debian specificities

@@ -47,4 +47,11 @@ RUN set -ex; \
     locale-gen; \
     :
 
+RUN set -ex; \
+    curl -Lo gh.deb https://github.com/cli/cli/releases/download/v2.16.0/gh_2.16.0_linux_amd64.deb; \
+    dpkg -i gh.deb; \
+    rm -f gh.deb; \
+    gh --version; \
+    :
+
 ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]
