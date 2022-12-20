@@ -6,7 +6,7 @@ Buildpack image for development of PostgreSQL tooling:
 - curl, wget, ca-certificates
 - git
 - ghr, gh
-- jq
+- jq, yq
 - make
 - psql
 - retry, wait-for-it.sh
