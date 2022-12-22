@@ -21,6 +21,7 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         bats \
         bzip2 \
+        gawk \
         git \
         jq \
         locales \
