@@ -13,6 +13,7 @@ RUN set -ex; \
 RUN set -ex; \
     chmod +x /usr/local/bin/retry; \
     yum -qy install --nodocs \
+        https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
         dnf-plugins-core \
         epel-release \
     ; \
