@@ -12,6 +12,9 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
+    sed -i /^deb/s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list ; \
+    sed -i /^deb/s/security.debian.org/archive.debian.org/g /etc/apt/sources.list ; \
+    sed -i /stretch-updates/d /etc/apt/sources.list ; \
     apt-get update -y; \
     apt-get install -y --no-install-recommends \
         bats \
