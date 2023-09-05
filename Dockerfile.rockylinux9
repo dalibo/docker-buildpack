@@ -12,12 +12,12 @@ RUN set -ex; \
 
 RUN set -ex; \
     chmod +x /usr/local/bin/retry; \
-    yum -q -y install --nodocs \
+    /usr/local/bin/retry yum -q -y install --nodocs \
         https://download.postgresql.org/pub/repos/yum/common/redhat/rhel-9-x86_64/pgdg-redhat-repo-42.0-34PGDG.noarch.rpm \
         dnf-plugins-core \
         epel-release \
     ; \
-    yum -q -y --nodocs install \
+    /usr/local/bin/retry yum -q -y --nodocs install \
         https://mirror.in2p3.fr/pub/epel/9/Everything/x86_64/Packages/b/bats-1.8.0-1.el9.noarch.rpm \
         findutils \
         git \
