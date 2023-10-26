@@ -17,6 +17,7 @@ RUN set -ex; \
         dnf-plugins-core \
         epel-release \
     ; \
+    yum config-manager --set-enabled powertools; \
     yum -q -y --nodocs install \
         bats \
         findutils \
