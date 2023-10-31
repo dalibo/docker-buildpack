@@ -8,6 +8,7 @@ RUN set -ex; \
     chmod +x /usr/local/bin/wait-for-it.sh; \
     chmod +x /usr/local/sbin/tini; \
     useradd --system testuser; \
+    install --directory --owner=testuser --group=testuser ~testuser; \
     :
 
 RUN set -ex; \
