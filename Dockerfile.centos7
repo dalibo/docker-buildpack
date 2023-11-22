@@ -17,6 +17,7 @@ RUN set -ex; \
     yum -q -y install epel-release ; \
     yum -q -y install \
         bats \
+        bzip2 \
         jq \
         make \
         net-tools \

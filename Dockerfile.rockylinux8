@@ -21,6 +21,7 @@ RUN set -ex; \
     yum config-manager --set-enabled powertools; \
     yum -q -y --nodocs install \
         bats \
+        bzip2 \
         findutils \
         git \
         glibc-langpack-en \
