@@ -22,6 +22,7 @@ RUN set -ex; \
     yum -q -y --nodocs install \
         bats \
         bzip2 \
+        diffutils \
         findutils \
         git \
         glibc-langpack-en \

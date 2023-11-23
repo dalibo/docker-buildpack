@@ -18,6 +18,7 @@ RUN set -ex; \
     yum -q -y install \
         bats \
         bzip2 \
+        diffutils \
         jq \
         make \
         net-tools \
