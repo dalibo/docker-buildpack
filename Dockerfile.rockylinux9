@@ -27,6 +27,7 @@ RUN set -ex; \
         git \
         glibc-langpack-en \
         jq \
+        krb5-workstation \
         make \
         net-tools \
         openssh-clients \

@@ -24,6 +24,7 @@ RUN set -ex; \
         gawk \
         git \
         jq \
+        krb5-user \
         locales \
         make \
         netbase \

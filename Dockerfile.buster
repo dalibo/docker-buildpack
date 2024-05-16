@@ -18,6 +18,7 @@ RUN set -ex; \
         bzip2 \
         git \
         jq \
+        krb5-user \
         locales \
         make \
         netbase \
