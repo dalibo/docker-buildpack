@@ -21,6 +21,8 @@ RUN set -ex; \
     yum -q -y install \
         http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm \
         bats \
+        cyrus-sasl-gssapi \
+        krb5-workstation \
         make \
         net-tools \
         openssh-clients \
