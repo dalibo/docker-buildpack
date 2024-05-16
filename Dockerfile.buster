@@ -19,6 +19,7 @@ RUN set -ex; \
         git \
         jq \
         krb5-user \
+        libsasl2-modules-gssapi-mit \
         locales \
         make \
         netbase \

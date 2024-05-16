@@ -22,6 +22,7 @@ RUN set -ex; \
     yum -q -y --nodocs install \
         bats \
         bzip2 \
+        cyrus-sasl-gssapi \
         diffutils \
         findutils \
         git \

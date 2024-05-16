@@ -22,6 +22,7 @@ RUN set -ex; \
         bats \
         bzip2 \
         https://mirror.in2p3.fr/pub/epel/9/Everything/x86_64/Packages/b/bats-1.8.0-1.el9.noarch.rpm \
+        cyrus-sasl-gssapi \
         diffutils \
         findutils \
         git \
