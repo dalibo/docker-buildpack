@@ -30,6 +30,7 @@ RUN set -ex; \
         make \
         netbase \
         openssh-client \
+        parallel \
         postgresql-client \
         procps \
         rsync \
