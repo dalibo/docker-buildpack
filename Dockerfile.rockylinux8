@@ -19,6 +19,7 @@ RUN set -ex; \
         epel-release \
     ; \
     yum config-manager --set-enabled powertools; \
+    dnf -qy module disable postgresql; \
     yum -q -y --nodocs install \
         bats \
         bzip2 \
