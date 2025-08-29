@@ -47,6 +47,7 @@ Also, Debian images does not includes Python.
 - `rockylinux8`
 - `rockylinux9`
 - `stretch`.
+- `trixie`
 
 
 ## retry
