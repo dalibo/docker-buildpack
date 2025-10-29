@@ -46,6 +46,7 @@ Also, Debian images does not includes Python.
 - `noble`.
 - `rockylinux8`
 - `rockylinux9`
+- `rockylinux10`
 - `stretch`.
 
 
