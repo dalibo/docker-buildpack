@@ -28,12 +28,3 @@ RUN set -eux; \
         zip \
     ; \
     :
-
-RUN set -ex; \
-    curl -LO https://github.com/tcnksm/ghr/releases/download/v0.17.0/ghr_v0.17.0_linux_amd64.tar.gz; \
-    tar --strip-component=1 -xvf ghr_v0.17.0_linux_amd64.tar.gz ghr_v0.17.0_linux_amd64/ghr; \
-    chmod +x ghr; \
-    mv ghr /usr/local/bin; \
-    rm -f ghr_*.tar.gz; \
-    ghr -version; \
-    :
