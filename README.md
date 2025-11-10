@@ -88,3 +88,7 @@ root@ea6830e87421:/etabli# retry false bla bla
 + sleep 2
 ...
 ```
+
+## Contributing
+
+Image usage by Dalibo projects is documented in [wiki](https://github.com/dalibo/docker-buildpack/wiki).
