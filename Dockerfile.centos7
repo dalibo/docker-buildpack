@@ -12,7 +12,8 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
-    sed -i /baseurl=/s/http:/https:/ /etc/yum.repos.d/*.repo; \
+    rm -vf /etc/yum.repos.d/*-Base.repo; \
+    sed -i '/C7\.8\.2003/,$s/enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-Vault.repo; \
     yum -q -y update ; \
     yum -q -y install epel-release ; \
     yum -q -y install \
@@ -20,21 +21,17 @@ RUN set -ex; \
         bats \
         bzip2 \
         cyrus-sasl-gssapi \
-        diffutils \
         jq \
-        krb5-workstation \
+        krb5-workstation=1.15.1-46.el7 \
         make \
         net-tools \
         openssh-clients \
         openssl \
         postgresql \
-        procps-ng \
         psmisc \
         rsync \
         sudo \
         wget \
-        xz-libs \
-        yum-utils \
         http://opensource.wandisco.com/centos/7/git/x86_64/perl-Git-2.22.0-1.WANdisco.437.noarch.rpm \
         http://opensource.wandisco.com/centos/7/git/x86_64/git-2.22.0-1.WANdisco.437.x86_64.rpm \
     ; \
