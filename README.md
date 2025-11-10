@@ -60,7 +60,6 @@ Also, Debian images does not includes Python.
 - `alpine`.
 - `bookworm`.
 - `bullseye`.
-- `buster`.
 - `centos6`.
 - `centos7`.
 - `jammy`.

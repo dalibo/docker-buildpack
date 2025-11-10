@@ -1,7 +1,7 @@
-all: alpine rockylinux8 centos7 centos6 bookworm bullseye buster noble jammy
+all: alpine rockylinux8 centos7 centos6 bookworm bullseye noble jammy
 
 .PHONY: centos6
-alpine centos7 centos6 trixie bookworm bullseye buster noble jammy rockylinux10 rockylinux9 rockylinux8:
+alpine centos7 centos6 trixie bookworm bullseye noble jammy rockylinux10 rockylinux9 rockylinux8:
 	docker build --pull \
 	  --build-arg http_proxy \
 	  --tag dalibo/buildpack:$@ \
