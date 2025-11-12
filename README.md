@@ -24,6 +24,7 @@ You are strongly encouraged to pin SHA256 when using an image!
 
 Buildpack image for development of PostgreSQL tooling:
 
+- PGDG repositories.
 - bzip2, zip, xz
 - curl, wget, ca-certificates
 - git

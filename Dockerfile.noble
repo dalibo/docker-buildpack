@@ -17,6 +17,10 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
+    curl -o /etc/apt/trusted.gpg.d/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc ; \
+    echo "deb http://apt.postgresql.org/pub/repos/apt/ noble-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
+    mkdir -p /etc/postgresql-common/createcluster.d/; \
+    echo "create_main_cluster = false" > /etc/postgresql-common/createcluster.d/no-main-cluster.conf; \
     apt-get update -y; \
     apt-get install -y --no-install-recommends \
         bats \
