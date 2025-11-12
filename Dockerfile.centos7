@@ -11,10 +11,16 @@ RUN set -ex; \
     install --directory --owner=testuser --group=testuser ~testuser; \
     :
 
+ADD centos7/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
+
 RUN set -ex; \
-    rm -vf /etc/yum.repos.d/*-Base.repo; \
-    sed -i '/C7\.8\.2003/,$s/enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-Vault.repo; \
-    yum -q -y update ; \
+    rm -vf \
+        /etc/yum.repos.d/CentOS-Media.repo \
+        /etc/yum.repos.d/CentOS-fasttrack.repo \
+        /etc/yum.repos.d/CentOS-*-kernel.repo \
+        /etc/yum.repos.d/CentOS-Vault.repo \
+    ; \
+    yum -q -y makecache fast ; \
     yum -q -y install epel-release ; \
     yum -q -y install \
         https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
@@ -22,7 +28,7 @@ RUN set -ex; \
         bzip2 \
         cyrus-sasl-gssapi \
         jq \
-        krb5-workstation=1.15.1-46.el7 \
+        krb5-workstation \
         make \
         net-tools \
         openssh-clients \
