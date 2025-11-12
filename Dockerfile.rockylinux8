@@ -23,13 +23,11 @@ RUN set -ex; \
     yum -q -y --nodocs install \
         bats \
         bzip2 \
-        cyrus-sasl-gssapi \
         diffutils \
         findutils \
         git \
         glibc-langpack-en \
         jq \
-        krb5-workstation \
         make \
         net-tools \
         openssh-clients \

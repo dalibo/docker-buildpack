@@ -22,13 +22,11 @@ RUN set -ex; \
         bats \
         bzip2 \
         https://mirror.in2p3.fr/pub/epel/10/Everything/x86_64/Packages/b/bats-1.11.1-1.el10_0.noarch.rpm \
-        cyrus-sasl-gssapi \
         diffutils \
         findutils \
         git \
         glibc-langpack-en \
         jq \
-        krb5-workstation \
         make \
         net-tools \
         openssh-clients \

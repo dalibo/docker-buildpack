@@ -26,9 +26,7 @@ RUN set -ex; \
         https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
         bats \
         bzip2 \
-        cyrus-sasl-gssapi \
         jq \
-        krb5-workstation \
         make \
         net-tools \
         openssh-clients \
