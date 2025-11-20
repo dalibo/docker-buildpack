@@ -2,14 +2,12 @@ FROM buildpack-deps:bookworm-curl
 
 ADD common/retry /usr/local/bin
 ADD common/dpkg-trim.conf /etc/dpkg/dpkg.cfg.d/01trim
-ADD https://github.com/krallin/tini/releases/download/v0.19.0/tini /usr/local/sbin/tini
 ADD https://github.com/vishnubob/wait-for-it/raw/master/wait-for-it.sh /usr/local/bin/
 
 RUN set -ex; \
     chmod +x \
         /usr/local/bin/retry \
         /usr/local/bin/wait-for-it.sh \
-        /usr/local/sbin/tini \
     ; \
     useradd --system testuser; \
     :
@@ -36,6 +34,7 @@ RUN set -ex; \
         rsync \
         shellcheck \
         sudo \
+        tini \
         unzip \
         xz-utils \
         zip \
@@ -56,4 +55,4 @@ RUN set -ex; \
     locale-gen; \
     :
 
-ENTRYPOINT ["/usr/local/sbin/tini", "-gw", "--"]
+ENTRYPOINT ["/usr/bin/tini", "-gw", "--"]
