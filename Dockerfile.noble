@@ -9,7 +9,7 @@ RUN set -ex; \
     chmod +x \
         /usr/local/bin/retry \
         /usr/local/bin/wait-for-it.sh \
-        /usr/bin/tini; \
+        /usr/bin/tini \
     ; \
     useradd --system testuser; \
     :
