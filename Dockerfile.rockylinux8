@@ -11,6 +11,7 @@ RUN set -ex; \
     install --directory --owner=testuser --group=testuser ~testuser; \
     :
 
+
 RUN set -ex; \
     chmod +x /usr/local/bin/retry; \
     yum -qy install --nodocs \
