@@ -56,7 +56,7 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
-    curl -Lo gh.deb https://github.com/cli/cli/releases/download/v2.16.0/gh_2.16.0_linux_amd64.deb; \
+    curl -fsSLo gh.deb https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.deb; \
     dpkg -i gh.deb; \
     rm -f gh.deb; \
     gh --version; \
