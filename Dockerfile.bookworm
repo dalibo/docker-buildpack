@@ -12,8 +12,11 @@ RUN set -ex; \
     useradd --system testuser; \
     :
 
-RUN set -ex; \
-    curl -o /etc/apt/trusted.gpg.d/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc ; \
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt/lists,sharing=locked \
+    --mount=type=tmpfs,target=/var/log \
+    set -ex; \
+    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc  -o /etc/apt/trusted.gpg.d/apt.postgresql.org.asc; \
     echo "deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list; \
     mkdir -p /etc/postgresql-common/createcluster.d/; \
     echo "create_main_cluster = false" > /etc/postgresql-common/createcluster.d/no-main-cluster.conf; \
@@ -39,14 +42,6 @@ RUN set -ex; \
         xz-utils \
         zip \
     ; \
-    apt-get clean; \
-    rm -rf \
-        /usr/share/postgresql/*/man \
-        /var/lib/apt/lists/* \
-        /var/log/apt \
-        /var/log/dpkg.log \
-        /var/log/alternatives.log \
-    ; \
     :
 
 RUN set -ex; \
@@ -56,7 +51,7 @@ RUN set -ex; \
     :
 
 RUN set -ex; \
-    curl -Lo gh.deb https://github.com/cli/cli/releases/download/v2.83.1/gh_2.83.1_linux_amd64.deb; \
+    curl -fsSLo gh.deb https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.deb; \
     dpkg -i gh.deb; \
     rm -f gh.deb; \
     gh --version; \
