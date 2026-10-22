@@ -1,22 +1,22 @@
-# [dalibo/buildpack]
+# [ghcr.io/dalibo/buildpack]
 
 Dalibo maintains a family of *buildpack* container image
 for development and CI environment
 of PostgreSQL and PostgreSQL tool projects.
 
-- [dalibo/buildpack]: basic tooling
-  - [dalibo/buildpack-mig]: with tooling for Oracle, MySQL, MariaDB, etc.
-  - [dalibo/buildpack-pkg]: packaging for debian, redhat, etc.
-  - [dalibo/buildpack-python]: for python-based project
-    - [dalibo/buildpack-postgres]: includes three major versions of PostgreSQL server
-      - [dalibo/buildpack-postgres-dev]: for extension development
+- [ghcr.io/dalibo/buildpack]: basic tooling
+  - [ghcr.io/dalibo/buildpack-mig]: with tooling for Oracle, MySQL, MariaDB, etc.
+  - [ghcr.io/dalibo/buildpack-pkg]: packaging for debian, redhat, etc.
+  - [ghcr.io/dalibo/buildpack-python]: for python-based project
+    - [ghcr.io/dalibo/buildpack-postgres]: includes three major versions of PostgreSQL server
+      - [ghcr.io/dalibo/buildpack-postgres-dev]: for extension development
 
-[dalibo/buildpack]: https://hub.docker.com/r/dalibo/buildpack
-[dalibo/buildpack-mig]: https://hub.docker.com/r/dalibo/buildpack-mig
-[dalibo/buildpack-pkg]: https://hub.docker.com/r/dalibo/buildpack-pkg
-[dalibo/buildpack-python]: https://hub.docker.com/r/dalibo/buildpack-python
-[dalibo/buildpack-postgres]: https://hub.docker.com/r/dalibo/buildpack-postgres
-[dalibo/buildpack-postgres-dev]: https://hub.docker.com/r/dalibo/buildpack-postgres-dev
+[ghcr.io/dalibo/buildpack]: https://github.com/dalibo/docker-buildpack
+[ghcr.io/dalibo/buildpack-mig]: https://github.com/dalibo/docker-buildpack-mig
+[ghcr.io/dalibo/buildpack-pkg]: https://github.com/dalibo/docker-buildpack-pkg
+[ghcr.io/dalibo/buildpack-python]: https://github.com/dalibo/docker-buildpack-python
+[ghcr.io/dalibo/buildpack-postgres]: https://github.com/dalibo/docker-buildpack-postgres
+[ghcr.io/dalibo/buildpack-postgres-dev]: https://github.com/dalibo/docker-buildpack-postgres-dev
 
 You are strongly encouraged to pin SHA256 when using an image!
 
