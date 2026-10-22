@@ -26,7 +26,6 @@ jobs:
         tag:
           - alpine
           - bookworm
-          - bullseye
           - centos6
           - centos7
           - jammy
