@@ -5,7 +5,9 @@ on:
   pull_request:
   schedule:
     # Weekly rebuild to pick up security updates from base images and distributions.
-    - cron: "17 4 * * 1"
+    # Cron cannot read variables, so it fires daily and the check-day job
+    # lets only one day through: Monday by default, or the DAY variable.
+    - cron: "17 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +19,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check-day:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.day.outputs.run }}
+    steps:
+      - id: day
+        env:
+          EVENT: ${{ github.event_name }}
+          # Optional override: set a repository variable DAY to the weekday of
+          # the scheduled rebuild, cron-style: 0 or 7 = Sunday, 1 = Monday … 6 = Saturday.
+          # (Settings → Secrets and variables → Actions → Variables)
+          DAY: ${{ vars.DAY || '1' }}
+        run: |
+          if [ "$EVENT" != schedule ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          case "$DAY" in
+            [0-7]) ;;
+            *) echo "::error::DAY must be a number from 0 to 7, got '$DAY'"; exit 1 ;;
+          esac
+          [ "$DAY" = 0 ] && DAY=7      # date +%u uses 7 for Sunday
+          today="$(date -u +%u)"
+          if [ "$today" = "$DAY" ]; then run=true; else run=false; fi
+          echo "Today is day $today, scheduled day is $DAY: run=$run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: check-day
+    if: needs.check-day.outputs.run == 'true'
     name: ${{ matrix.tag }}
     runs-on: ubuntu-latest
     strategy:
