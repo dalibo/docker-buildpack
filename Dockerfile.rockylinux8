@@ -37,6 +37,7 @@ RUN set -ex; \
         procps-ng \
         psmisc \
         rsync \
+        ShellCheck \
         sudo \
         wget \
         xz \
@@ -47,12 +48,6 @@ RUN set -ex; \
         /usr/share/perl5/pod/*.pod \
         /var/log/dnf*.log \
     ; \
-    :
-
-RUN set -ex; \
-    curl -sSL https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -C /usr/local/bin -vxJ --strip-components=1 shellcheck-stable/shellcheck ; \
-    chmod +x /usr/local/bin/shellcheck ; \
-    shellcheck --version ; \
     :
 
 ENTRYPOINT ["/usr/bin/tini", "-gw", "--"]
