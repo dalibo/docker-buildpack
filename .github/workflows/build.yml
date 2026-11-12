@@ -2,7 +2,6 @@ name: Build and push images
 
 on:
   push:
-  pull_request:
   schedule:
     # Weekly rebuild to pick up security updates from base images and distributions.
     - cron: "17 4 * * 1"
@@ -39,8 +38,8 @@ jobs:
           - tag: rockylinux9
             platforms: linux/amd64,linux/ppc64le
     env:
-      # Push only from the default branch or on manual runs, never from pull requests.
-      PUSH: ${{ github.event_name == 'workflow_dispatch' || (github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch) }}
+      # Push only from the default branch or on manual runs.
+      PUSH: ${{ github.event_name == 'workflow_dispatch' || github.ref_name == github.event.repository.default_branch }}
     steps:
       - uses: actions/checkout@v7
 
